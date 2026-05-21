@@ -1,0 +1,9 @@
+{
+  "name": "stylish-font-converter-api",
+  "version": "1.0.0",
+  "description": "API to convert normal text to stylish fonts",
+  "main": "api/convert.js",
+  "scripts": {
+    "start": "node api/convert.js"
+  }
+}
