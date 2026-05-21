@@ -14,22 +14,22 @@ const v1_bold = [
 
 // 3. Version 2: Italic Style
 const v2_italic = [
-    "𝘈", "𝘉", "𝘊", "𝘋", "𝘌", "𝘍", "𝘎", "𝘏", "𝘐", "𝘑", "𘘡", "𘘢", "𝘔", "𘘣", "𝘖", "𘘤", "𘘥", "𘘦", "𘘧", "𘘨", "𘘩", "𘘪", "𝘞", "𘘫", "𘘬", "𘘭",
-    "𝘢", "𝘣", "𝘤", "𝘥", "𝘦", "𝘧", "𝘨", "𝘩", "𝘪", "𝘫", "𝘬", "𝘭", "𝘮", "𝘯", "𝘰", "𝘱", "𝘲", "𝘳", "𝘴", "𝘵", "𝘶", "𝘷", "𝘸", "𝘹", "𝘺", "𝘻",
+    "𝘈", "𘘡", "𘘢", "𝘋", "𘘣", "𘘤", "𘘥", "𝘏", "𝘐", "𘘦", "𘘧", "𘘨", "𝘔", "𘘩", "𝘖", "𘘪", "𘘫", "𘘬", "𘘭", "𘘮", "𘘯", "𘘰", "𝘞", "𘘱", "𘘲", "𘘳",
+    "𝘢", "𝘣", "𝘤", "𝘥", "𝘦", "𝘧", "𝘨", "𝘩", "𝘪", "𝘫", "𝘬", "𝘭", "𝘮", "𝘯", "𝘰", "𝘱", "𘘴", "𝘳", "𝘴", "𝘵", "𝘶", "𝘷", "𝘸", "𘘵", "𝘺", "𝘻",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ];
 
 // 4. Version 3: Monospace Style
 const v3_monospace = [
     "𝙰", "𝙱", "𝙲", "𝙳", "𝙴", "𝙵", "𝙶", "𝙷", "𝙸", "𝙹", "𝙺", "𝙻", "𝙼", "𝙽", "𝙾", "𝙿", "𝚀", "𝚁", "𝚂", "𝚃", "𝚄", "𝚅", "𝚆", "𝚇", "𝚈", "𝚉",
-    "𝚊", "𝚋", "𝚌", "𝚍", "𝚎", "𝚏", "𝚐", "𝚑", "𝚒", "𝚓", "𝚔", "𝚕", "𝚖", "𝚗", "𝚘", "𝚙", "𝚚", "𝚛", "𝚜", "𝚝", "𝚞", "𝚟", "𝚠", "𝚡", "𝚢", "𝚣",
+    "𝚊", "𝚋", "𝚌", "𝚍", "𝚎", "𝚏", "𝚐", "𝚑", "𝚒", "𝚓", "𝚔", "𝚕", "𝚖", "𝚗", "𝚘", "𝚙", "𝚚", "𝚛", "𝚜", "𝚝", "𝚞", "𝚟", "𝚠", "𝚡", "𝚢", "𝚛",
     "𝟶", "𝟷", "𝟸", "𝟹", "𝟺", "𝟻", "𝟼", "𝟽", "𝟾", "𝟿"
 ];
 
-// 5. Version 4: Script / Style 1
+// 5. Version 4: Script / Handwriting
 const v4_script = [
-    "Λ", " 𝐁", "𞤌", "𖼄", "Ξ", "Բ", "Ꮐ", "┣𝐥, "𝐈", "𐴁", "꧊‹", "𝐋", "𝐌", "𖼆", "Ꭷ", "℘", "𝚀", "ཞ", "𝐒", "𝐓", "𖼓", "ꪜ", "𝐖", "ꭗ", "ⲩ", "𝐙",
-    "α", "ꪉ", "ɕ", "∂", "ɛ", "ϝ", "ԍ", "꧊ꪱ̴", "ī֟፝", "𖼳", "ӄ", "ɭ", "Ⲙ", "ꪒ", "σ", "թ", "ꪇ", "꧊ꝛ", "ꜱ", "ꝉ", "𝛖", "ѵ̐", "ꮗ", "x", "ɣ", "ɀ",
+    "𝓐", "𝓑", "𝓒", "𝓓", "𝓔", "𝓕", "𝓰", "𝓗", "𝓘", "𝓙", "𝓚", "𝓛", "𝓜", "𝓝", "𝓞", "𝓟", "𝓠", "𝓡", "𝓢", "𝓣", "𝓤", "𝓥", "𝓦", "𝓧", "𝓨", "𝓩",
+    "𝓪", "𝓫", "𝓬", "𝓭", "𝓮", "𝓯", "𝓰", "𝓱", "𝓲", "𝓳", "𝓴", "𝓵", "𝓶", "𝓷", "𝓸", "𝓹", "𝓺", "𝓻", "𝓼", "𝓽", "𝓾", "𝓿", "𝔀", "𝔁", "𝔂", "𝔃",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ];
 
@@ -47,8 +47,15 @@ const v6_fraktur = [
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ];
 
+// 8. Version 7: Special Premium Aesthetic Style (यह नया जोड़ा गया है)
+const v7_aesthetic = [
+    "Λ", " 𝐁", "𞤌", "𖼄", "Ξ", "Բ", "Ꮐ", "┣𝐥", "𝐈", "𐴁", "꧊‹", "𝐋", "𝐌", "𖼆", "Ꭷ", "℘", "𝚀", "ཞ", "𝐒", "𝐓", "𖼓", "ꪜ", "𝐖", "ꭗ", "ⲩ", "𝐙",
+    "α", "ꪉ", "ɕ", "∂", "ɛ", "ϝ", "ԍ", "꧊ꪱ̴", "ī֟፝", "𖼳", "ӄ", "ɭ", "Ⲙ", "ꪒ", "σ", "թ", "ꪇ", "꧊ꝛ", "ꜱ", "ꝉ", "𝛖", "ѵ̐", "ꮗ", "ꭗ", "ɣ", "ɀ",
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+];
 
-// टेक्स्ट को कनवर्ट करने का मुख्य फंक्शन
+
+// टेक्स्ट कनवर्ट करने का फंक्शन
 function convertText(text, styleMap) {
     return Array.from(text).map(char => {
         const index = normal.indexOf(char);
@@ -63,29 +70,29 @@ module.exports = (req, res) => {
 
     let { text, style } = req.query;
 
-    // यदि यूजर ने मुख्य वेबसाइट को सीधा खोला है (बिना 'text' पैरामीटर के)
+    // यदि यूजर डायरेक्ट वेबसाइट ओपन करता है
     if (!text) {
         return res.status(200).json({
             TG: "tera_paglu",
             status: "success",
             api_usage: "Add '?text=your+text&style=v1' to the URL.",
-            example_usage: "https://stylish-font-api.vercel.app/api/convert?text=Oye+buggu&style=v2",
+            example_usage: "https://stylish-font-api.vercel.app/api/convert?text=Oye+buggu&style=v7",
             available_versions: [
                 { version: "V1", name: "Bold", example: "𝐎𝐲𝐞 𝐛𝐮𝐠𝐠𝐮" },
                 { version: "V2", name: "Italic", example: "𝘖𝘺𝘦 𝘣𝘶𝘨𝘨𝘶" },
                 { version: "V3", name: "Monospace", example: "𝙾𝚢𝚎 𝚋𝚞𝚐𝚐𝚞" },
-                { version: "V4", name: "Style 1", example: "Ꭷɣɛ  𝐁𝛖ԍԍ𝛖" },
+                { version: "V4", name: "Script", example: "𝓞𝔂𝓮 𝓫𝓾𝓰𝓰𝓾" },
                 { version: "V5", name: "Double Struck", example: "𝕆𝕪𝕖 𝕓𝕦𝕘𝕘𝕦" },
-                { version: "V6", name: "Fraktur", example: "𝔒𝔶𝔢 𝔟𝔲𝔤𝔤𝔲" }
+                { version: "V6", name: "Fraktur", example: "𝔒𝔶𝔢 𝔟𝔲𝔤𝔤𝔲" },
+                { version: "V7", name: "Aesthetic Premium", example: "Ꭷɣɛ ꪉ𝛖ꪇꪇ𝛖" } // सूची में नया स्टाइल जोड़ा गया
             ],
             owner: "Divyansh_deewana"
         });
     }
 
-    // डिफ़ॉल्ट रूप से स्टाइल v1 सेट करें
     style = style ? style.toLowerCase() : 'v1';
 
-    // चुने गए स्टाइल के अनुसार मैप असाइन करें
+    // चुने गए स्टाइल के अनुसार मैप असाइन करना
     let selectedMap;
     if (style === 'v2') {
         selectedMap = v2_italic;
@@ -97,13 +104,15 @@ module.exports = (req, res) => {
         selectedMap = v5_doubleStruck;
     } else if (style === 'v6') {
         selectedMap = v6_fraktur;
+    } else if (style === 'v7') {
+        selectedMap = v7_aesthetic; // नया कंडीशन ब्लॉक
     } else {
         selectedMap = v1_bold; // Default style is V1
     }
 
     const converted = convertText(text, selectedMap);
 
-    // सफल कनवर्ट होने पर JSON रिस्पॉन्स (TG पहले, status, फिर कनवर्टेड डेटा, और अंत में owner)
+    // JSON रिस्पॉन्स
     res.status(200).json({
         TG: "tera_paglu",
         status: "success",
