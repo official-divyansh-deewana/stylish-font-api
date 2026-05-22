@@ -111,7 +111,7 @@ module.exports = (req, res) => {
     // V5 स्टाइल के लिए प्रीफिक्स, सफिक्स और रैंडम इमोजी
     if (style === 'v5') {
         const randomEmojis = getRandomEmojis(4);
-        converted = `*⎯⎯꯭̽🌸${converted} 𝆺𝅥𝆬🩵🥂🫧⟶⋆${randomEmojis}*`;
+        converted = `*⎯⎯꯭̽🌸${converted} 𝆺𝅥𝆬🩵🥂🫧⟶⋆*`;
     }
 
     // JSON रिस्पॉन्स
