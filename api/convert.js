@@ -136,7 +136,7 @@ module.exports = (req, res) => {
     if (style === 'v6') {
         converted = convertV6(text);
         const randomEmojis = getRandomEmojis(2); // 2 रैंडम इमोजी
-        converted = `*⸙⤹ ${converted}ꜛ⤸${randomEmojis}*`;
+        converted = `*⸙⤹${converted}ꜛ⤸${randomEmojis}*`;
     } else {
         // अन्य वर्जन्स के लिए सामान्य कनवर्टर
         let selectedMap;
