@@ -26,10 +26,17 @@ const v3_new = [
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ];
 
-// 5. Version 4 (Caption Convert - यह नया जोड़ा गया है)
+// 5. Version 4 (Caption Premium)
 const v4_caption = [
-    "𝐀", "𝐁", "𝐂", "𝐃", "𝐄", "𝐅", "𝐆", "𝐇", "𝐈", "𝐉", "𝐊", "𝐋", "𝐌", "𝐍", "𝐎", "𝐏", "𝐐", "𝐑", "𝐒", "𝐓", "𝐔", "𝐕", "𝐖", "𝐗", "𝐘", "𝐙",
+    "𝐀", "𝐁", "𝐂", "package.json", "𝐄", "𝐅", "𝐆", "𝐇", "𝐈", "𝐉", "𝐊", "𝐋", "𝐌", "𝐍", "𝐎", "𝐏", "𝐐", "𝐑", "𝐒", "𝐓", "𝐔", "𝐕", "𝐖", "𝐗", "𝐘", "𝐙",
     "ᴀ", "ʙ", "ᴄ", "ᴅ", "ᴇ", "ғ", "ɢ", "ʜ", "ɪ", "ᴊ", "ᴋ", "ʟ", "ᴍ", "ɴ", "ᴏ", "ᴘ", "ǫ", "ʀ", "s", "ᴛ", "ᴜ", "ᴠ", "ᴡ", "x", "ʏ", "ᴢ",
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+];
+
+// 6. Version 5 (Flower Caption Premium - यह नया जोड़ा गया है)
+const v5_flower_caption = [
+    "𝐀", "𝐁", "𝐂", "package.json", "𝐄", "𝐅", "𝐆", "𝐇", "𝐈", "𝐉", "𝐊", "package.json", "𝐌", "package.json", "𝐎", "𝐏", "𝐐", "𝐑", "𝐒", "𝐓", "𝐔", "𝐕", "𝐖", "𝐗", "𝐘", "𝐙",
+    "α", "ճ", "ϲ", "∂", "є", "ƒ", "ց", "հ", "ι", "j", "κ", "ℓ", "м", "и", "ο", "ρ", "գ", "я", "ѕ", "т", "υ", "ν", "ω", "ϰ", "γ", "z",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ];
 
@@ -38,7 +45,7 @@ const aestheticEmojis = [
     "🩷", "💍", "🌷", "✨", "🧸", "🎀", "🧁", "🤍", "🪐", "🍒", "🍓", "☁️", "🌻", "💫", "🍀", "🦋", "💌", "🌟", "🎈", "🍼"
 ];
 
-// 4 रैंडम अनोखे इमोजी प्राप्त करने का फंक्शन
+// 4 रैंडम इमोजी प्राप्त करने का फंक्शन
 function getRandomEmojis(count = 4) {
     let shuffled = [...aestheticEmojis].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count).join('');
@@ -65,12 +72,13 @@ module.exports = (req, res) => {
             TG: "tera_paglu",
             status: "success",
             api_usage: "Add '?text=your+text&style=v1' to the URL.",
-            example_usage: "https://stylish-font-api.vercel.app/api/convert?text=You%27re+Not+Just+My&style=v4",
+            example_usage: "https://stylish-font-api.vercel.app/api/convert?text=You%27re+Not+Just+My&style=v5",
             available_versions: [
                 { version: "V1", name: "Aesthetic Premium", example: "Ꭷɣɛ ꪉ𝛖ꪇꪇ𝛖" },
                 { version: "V2", name: "Modern Premium", example: "𝚲𝛂... (𝚲ʙɕ𝛛)" },
                 { version: "V3", name: "Gothic Greek Premium", example: "𝚨ᥲ... (𝚨Ƅ𝛓∂)" },
-                { version: "V4", name: "Caption Premium", example: "*˹♡ 𝐘ᴏ𝐮'ʀᴇ ɴᴏᴛ ᴊᴜsᴛ ᴍʏ°🩷💍🌷✨𓂃‹𝟹*" } // सूची में नया स्टाइल शामिल
+                { version: "V4", name: "Caption Premium", example: "*˹♡ 𝐘ᴏ𝐮'ʀᴇ ɴᴏᴛ ᴊᴜsᴛ ᴍʏ°🩷💍🌷✨𓂃‹𝟹*" },
+                { version: "V5", name: "Flower Caption Premium", example: "*⎯⎯꯭̽🌸𝐘ᴏυ'яє ɴᴏт ᴊυѕт ᴍყ 𝆺𝅥𝆬🩵🥂🫧⟶⋆🧸🎀🧁✨*" } // सूची में नया स्टाइल शामिल
             ],
             owner: "Divyansh_deewana"
         });
@@ -86,16 +94,24 @@ module.exports = (req, res) => {
         selectedMap = v3_new;
     } else if (style === 'v4') {
         selectedMap = v4_caption;
+    } else if (style === 'v5') {
+        selectedMap = v5_flower_caption;
     } else {
         selectedMap = v1_aesthetic; // Default V1
     }
 
     let converted = convertText(text, selectedMap);
 
-    // यदि यूजर ने V4 चुना है, तो प्रीफिक्स, सफिक्स और रैंडम इमोजी जोड़ें
+    // V4 स्टाइल के लिए प्रीफिक्स, सफिक्स और रैंडम इमोजी
     if (style === 'v4') {
         const randomEmojis = getRandomEmojis(4);
         converted = `*˹♡ ${converted}°${randomEmojis}𓂃‹𝟹*`;
+    }
+
+    // V5 स्टाइल के लिए प्रीफिक्स, सफिक्स और रैंडम इमोजी
+    if (style === 'v5') {
+        const randomEmojis = getRandomEmojis(4);
+        converted = `*⎯⎯꯭̽🌸${converted} 𝆺𝅥𝆬🩵🥂🫧⟶⋆${randomEmojis}*`;
     }
 
     // JSON रिस्पॉन्स
