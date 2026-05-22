@@ -36,7 +36,7 @@ const v4_caption = [
 // 6. Version 5 (Flower Caption Premium - यह नया जोड़ा गया है)
 const v5_flower_caption = [
     "𝐀", "𝐁", "𝐂", "package.json", "𝐄", "𝐅", "𝐆", "𝐇", "𝐈", "𝐉", "𝐊", "package.json", "𝐌", "package.json", "𝐎", "𝐏", "𝐐", "𝐑", "𝐒", "𝐓", "𝐔", "𝐕", "𝐖", "𝐗", "𝐘", "𝐙",
-    "α", "ճ", "ϲ", "∂", "є", "ƒ", "ց", "հ", "ι", "j", "κ", "ℓ", "м", "и", "ο", "ρ", "գ", "я", "ѕ", "т", "υ", "ν", "ω", "ϰ", "γ", "z",
+    "ʌ", "ɓ", "ϲ", "∂", "ε", "ƒ", "ɢ", "հ", "ι", "j", "κ", "ℓ", "ʍ", "и", "ο", "ρ", "գ", "я", "ѕ", "т", "υ", "ν", "ω", "ϰ", "γ", "z",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ];
 
@@ -46,7 +46,7 @@ const aestheticEmojis = [
 ];
 
 // 4 रैंडम इमोजी प्राप्त करने का फंक्शन
-function getRandomEmojis(count = 4) {
+function getRandomEmojis(count = 0) {
     let shuffled = [...aestheticEmojis].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count).join('');
 }
