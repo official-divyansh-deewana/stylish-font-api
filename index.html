@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Stylish Font Converter</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary-glow: #38bdf8;
+            --accent-pink: #f472b6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(56, 189, 248, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                        0 0 50px rgba(56, 189, 248, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                        0 0 60px rgba(56, 189, 248, 0.15);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-glow), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 0.75rem;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .badge:hover {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary-glow);
+            border-color: rgba(56, 189, 248, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1rem;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            resize: none;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        textarea:focus {
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+        }
+
+        .control-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        select {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 0.9rem 1rem;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            transition: all 0.2s ease;
+        }
+
+        select:focus {
+            border-color: var(--primary-glow);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-glow) 0%, #0284c7 100%);
+            color: #0f172a;
+            font-weight: 700;
+            border: none;
+            border-radius: 16px;
+            padding: 0.9rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .output-container {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            position: relative;
+            margin-top: 1.5rem;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .output-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            word-break: break-word;
+            margin-bottom: 1.25rem;
+            min-height: 40px;
+        }
+
+        .output-placeholder {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary-glow);
+            border-color: rgba(56, 189, 248, 0.2);
+        }
+
+        .copy-btn.copied {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-pink);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #f43f5e;
+            text-decoration: underline;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(15, 23, 42, 0.3);
+            border-radius: 50%;
+            border-top-color: #0f172a;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 500px) {
+            .control-row {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🌟 Stylish Font Converter 🌟</h1>
+            <p>Convert your texts into beautiful aesthetic fonts instantly</p>
+            <div class="badge-container">
+                <a href="https://t.me/tera_paglu" class="badge" target="_blank">
+                    <i class="fab fa-telegram"></i> @tera_paglu
+                </a>
+                <span class="badge">
+                    <i class="fas fa-user-shield"></i> Divyansh_deewana
+                </span>
+            </div>
+        </header>
+
+        <main>
+            <div class="input-group">
+                <label for="inputText" class="input-label">Enter Your Text</label>
+                <textarea id="inputText" placeholder="Mera Dil / Shona Babu... (Type here)"></textarea>
+            </div>
+
+            <div class="control-row">
+                <select id="styleSelect">
+                    <option value="v1">V1 - Aesthetic Premium</option>
+                    <option value="v2">V2 - Modern Premium</option>
+                    <option value="v3">V3 - Gothic Greek Premium</option>
+                    <option value="v4">V4 - Caption Premium (Fixed)</option>
+                    <option value="v5">V5 - Flower Caption Premium</option>
+                    <option value="v6">V6 - Premium Flag-Bold Mix</option>
+                    <option value="v7" selected>V7 - Tiny Font Premium</option>
+                </select>
+
+                <button id="convertBtn" class="btn">
+                    <span class="spinner" id="btnSpinner"></span>
+                    <span id="btnText"><i class="fas fa-magic"></i> Convert</span>
+                </button>
+            </div>
+
+            <label class="input-label">Output Preview</label>
+            <div class="output-container">
+                <div id="outputText" class="output-text">
+                    <span class="output-placeholder">Your stylish output will appear here...</span>
+                </div>
+                <button id="copyBtn" class="copy-btn">
+                    <i class="far fa-copy"></i> Copy Text
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>Created by <a href="https://t.me/tera_paglu" target="_blank">Divyansh_deewana</a> | TG: @tera_paglu</p>
+    </footer>
+
+    <script>
+        const inputText = document.getElementById('inputText');
+        const styleSelect = document.getElementById('styleSelect');
+        const convertBtn = document.getElementById('convertBtn');
+        const outputText = document.getElementById('outputText');
+        const copyBtn = document.getElementById('copyBtn');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const btnText = document.getElementById('btnText');
+
+        let convertedTextString = "";
+
+        // API Call to Convert Text
+        convertBtn.addEventListener('click', async () => {
+            const textVal = inputText.value.trim();
+            const styleVal = styleSelect.value;
+
+            if (!textVal) {
+                alert("Please enter some text first!");
+                return;
+            }
+
+            // Show Spinner / Loading State
+            btnSpinner.style.display = 'inline-block';
+            btnText.style.display = 'none';
+            convertBtn.disabled = true;
+
+            try {
+                // API URL Calling
+                const response = await fetch(`/api/convert?text=${encodeURIComponent(textVal)}&style=${styleVal}`);
+                const data = await response.json();
+
+                if (data.status === 'success' && data.converted_text) {
+                    convertedTextString = data.converted_text;
+                    outputText.innerText = convertedTextString;
+                    outputText.classList.remove('output-placeholder');
+                } else {
+                    outputText.innerHTML = `<span style="color: #f87171;">Error converting text. Please try again.</span>`;
+                }
+            } catch (error) {
+                console.error("API Error: ", error);
+                outputText.innerHTML = `<span style="color: #f87171;">Connection Error. Check Vercel Deployment.</span>`;
+            } finally {
+                // Restore Button State
+                btnSpinner.style.display = 'none';
+                btnText.style.display = 'inline-block';
+                convertBtn.disabled = false;
+            }
+        });
+
+        // Copy Clipboard Functionality
+        copyBtn.addEventListener('click', () => {
+            if (!convertedTextString) {
+                alert("Nothing to copy yet! Convert some text first.");
+                return;
+            }
+
+            navigator.clipboard.writeText(convertedTextString).then(() => {
+                copyBtn.innerHTML = `<i class="fas fa-check"></i> Copied!`;
+                copyBtn.classList.add('copied');
+
+                setTimeout(() => {
+                    copyBtn.innerHTML = `<i class="far fa-copy"></i> Copy Text`;
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error("Copy failed: ", err);
+                alert("Failed to copy. Please manually copy the text.");
+            });
+        });
+    </script>
+</body>
+</html>
