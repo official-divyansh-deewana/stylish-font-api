@@ -50,6 +50,12 @@ const v6_serif_bold = [
 const v6_greek_small = [
     "α", "β", "ϲ", "ᴅ", "ε", "ϝ", "ԍ", "н", "ι", "ϳ", "ӄ", "ℓ", "м", "η", "σ", "р", "ꮽ", "я", "ѕ", "т", "υ", "ν", "ω", "ϰ", "ϒ", "ʑ"
 ];
+// 8. Version 7 (Tiny Font - यह नया जोड़ा गया है)
+const v7_tiny = [
+    "ꪶ̸", "ᗿ", "Ƈ", "ᗞ", "Ə", "ϝ", "Ⴚ", "𑜼ᥣ̴", "Ⅰ", "ȷ", "꧊‹", "ɭ", "Ⲙ", "በ", "റ", "ᖘ", "ᨡ", "꧊⃖ꝛ", "ⲋ", "ȶ", "ᨷ", "᥎", "𖬊", "ꭗ", "ყ", "Z",
+    "꘍", "᭔", "𐫶", "𖽴", "𖾝", "ᥬ⃪", "ԍ", "𖣃̵", "𖽻", "נ", "ӄ", "𖾘", "𖾛", "᎔", "𑙃", "𖽳", "ꮽ", "៵", "𖾗", "𖾓", "᎑", "៴", "𖾟", "᙮", "ᵧ", "ᮧ",
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+];
 
 // एस्थेटिक इमोजीस की लिस्ट (V5 और V6 के रैंडम इमोजीस के लिए)
 const aestheticEmojis = [
@@ -62,7 +68,7 @@ function getRandomEmojis(count = 2) {
     return shuffled.slice(0, count).join('');
 }
 
-// सामान्य कनवर्टर फंक्शन (V1, V2, V3, V4, V5 के लिए)
+// सामान्य कनवर्टर फंक्शन (V1 से V5, और V7 के लिए)
 function convertText(text, styleMap) {
     return Array.from(text).map(char => {
         const index = normal.indexOf(char);
@@ -115,18 +121,25 @@ module.exports = (req, res) => {
             TG: "tera_paglu",
             status: "success",
             api_usage: "Add '?text=your+text&style=v1' to the URL.",
-            example_usage: "https://stylish-font-api.vercel.app/api/convert?text=Mera+Dil&style=v6",
+            example_usage: "https://stylish-font-api.vercel.app/api/convert?text=Mera+Dil&style=v7",
             available_versions: [
                 { version: "V1", name: "Aesthetic Premium", example: "Ꭷɣɛ ꪉ𝛖ꪇꪇ𝛖" },
                 { version: "V2", name: "Modern Premium", example: "𝚲𝛂... (𝚲ʙɕ𝛛)" },
                 { version: "V3", name: "Gothic Greek Premium", example: "𝚨ᥲ... (𝚨Ƅ𝛓∂)" },
                 { version: "V4", name: "Caption Premium", example: "*˹♡ 𝐘ᴏ𝐮'ʀᴇ ɴᴏᴛ ᴊᴜsᴛ ᴍʏ°🩷💍🌷✨𓂃‹𝟹*" },
                 { version: "V5", name: "Flower Caption Premium", example: "*⎯⎯꯭̽🌸𝐘ᴏυ'яє ɴᴏт ᴊυѕт ᴍყ 𝆺𝅥𝆬🩵🥂🫧⟶⋆🧸🎀🧁✨*" },
-                { version: "V6", name: "Premium Flag-Bold Mix Style", example: "*⸙⤹ 🇲εяα 𝐃ιℓꜛ⤸🧸🎀*" }
+                { version: "V6", name: "Premium Flag-Bold Mix Style", example: "*⸙⤹ 🇲εяα 𝐃ιℓꜛ⤸🧸🎀*" },
+                { version: "V7", name: "Tiny Font Premium", example: "ꪶ̸꘍... (ꪶ̸᭔𐫶𖽴)" } // नया V7 जोड़ा गया
             ],
             owner: "Divyansh_deewana"
         });
     }
+
+    // 🌟 ग्लोबल ऑटो-कैपिटलाइजेशन नियम (सभी स्टाइल्स के लिए प्रत्येक शब्द का पहला अक्षर बड़ा करें)
+    text = text.split(' ').map(word => {
+        if (word.length === 0) return word;
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
 
     style = style ? style.toLowerCase() : 'v1';
 
@@ -146,6 +159,8 @@ module.exports = (req, res) => {
             selectedMap = v4_caption;
         } else if (style === 'v5') {
             selectedMap = v5_flower_caption;
+        } else if (style === 'v7') {
+            selectedMap = v7_tiny; // V7 मैपिंग का चुनाव
         } else {
             selectedMap = v1_aesthetic; // Default V1
         }
@@ -172,3 +187,4 @@ module.exports = (req, res) => {
         owner: "Divyansh_deewana"
     });
 };
+
